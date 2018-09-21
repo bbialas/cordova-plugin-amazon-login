@@ -87,6 +87,8 @@ public class AmazonLoginPlugin extends CordovaPlugin {
 
             cordova.getThreadPool().execute(new Runnable() {
                 public void run() {
+                    AuthorizationManager.setSandboxMode(cordova.getActivity().getApplicationContext(), true);
+
                     AuthorizationManager.authorize(new AuthorizeRequest
                             .Builder(requestContext)
                             .addScopes(ProfileScope.profile(), ProfileScope.postalCode())
